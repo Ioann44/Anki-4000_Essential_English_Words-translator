@@ -1,0 +1,10 @@
+#separator:tab
+#html:true
+#guid column:1
+#notetype column:2
+#deck column:3
+#tags column:13
+xje~<2r0_>	4000 EEW Extra	4000 Essential English Words::Extra	2_1	"<img src=""backpack_1397924728921.jpg"">"	backpack	рюкзак	['bækpæk]	[sound:backpack.mp3]	[ˈbækpæk]	[ˈbækpæk]	[ˈbækpæk]	
+b0l;C^%^g:	4000 EEW	4000 Essential English Words::6.Book	thereby		"<img src=""13_3257.jpg"" />"	[sound:13_3257.mp3]	[sound:13_3257_meaning.mp3]	[sound:13_3257_example.mp3]	If we say that <i>thereby</i> something happens, we mean it is a result of something else.	He didn’t score a goal, <b>thereby</b> ending his chance at setting a record.	ˌðerˈbaɪ	
+q)PHE0%I:?	Cloze	4000 Essential English Words	1_1_79	"<img src=""beige_1397924728921.jpg"" />"
+H8b*]feu0?	Cloze	4000 Essential English Words	whereabouts		
