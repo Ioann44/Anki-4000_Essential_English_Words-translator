@@ -1,4 +1,5 @@
 import re
+from typing import Dict, Tuple
 from googletrans import Translator
 
 first_re = re.compile(
@@ -13,19 +14,28 @@ second_re = re.compile(
 )
 
 
-def modify_string(input_str, translate):
-    """Inserts translation if string matches of any regex"""
+def get_dct_and_enword(input_str) -> Tuple[Dict[str, str] | None, str]:
     match = first_re.match(input_str)
     if not match:
         match = second_re.match(input_str)
     if match:
         dct = match.groupdict()
-        return dct["beginning"] + dct["en_word"] + translate(dct["en_word"]) + dct["ending"]
+        return dct, dct["en_word"]
     else:
-        return input_str
+        dct = {"default": input_str}
+        return dct, ""
 
 
-def modify_file(in_fname, out_fname):
+def modify_string(dct, translation):
+    len_dct = len(dct)
+    assert len_dct in [1, 3], f"Wrong dictionary length: {len_dct}"
+    if len(dct) == 3:
+        return dct["beginning"] + dct["en_word"] + translation + dct["ending"]
+    else:
+        return dct["default"]
+
+
+def modify_file(in_fname, out_fname, buffer_len=100):
     """Applies modify_string function to every string in file and writes them to another"""
     translator = Translator()
     translate = lambda text_in: translator.translate(text_in, src="en", dest="ru").text
@@ -34,11 +44,29 @@ def modify_file(in_fname, out_fname):
     with open(in_fname, "r", encoding="utf-8") as in_file:
         with open(out_fname, "w", encoding="utf-8") as out_file:
             lines = in_file.readlines()
+            dct_buffer = []
+            en_words_buffer = []
+
+            lines_size = len(lines)
+            diff = (lines_size - 1) % buffer_len  # This made to be sure of clearing buffer on last iteration
             for i, line in enumerate(lines):
-                mod_string = modify_string(line, translate)
-                out_file.write(mod_string + ("\n" if not mod_string.endswith("\n") else ""))
-                print(i, mod_string)
-            # out_file.writelines(modify_string(line, translate) for line in in_file.readlines())
+                dct, en_word = get_dct_and_enword(line)
+                dct_buffer.append(dct)
+                en_words_buffer.append(en_word)
+
+                if (i - diff) % buffer_len == 0:
+                    # "a" here just a placeholder, because of translator deleting empty lines
+                    string_to_send = "\n".join(word if word != "" else "a" for word in en_words_buffer)
+                    translated_list = translate(string_to_send).split("\n")
+                    assert len(dct_buffer) == len(translated_list), "Lengths after translation are not equal"
+
+                    for dct_i, translation_i in zip(dct_buffer, translated_list):
+                        mod_string = modify_string(dct_i, translation_i)
+                        out_file.write(mod_string + ("\n" if not mod_string.endswith("\n") else ""))
+
+                    dct_buffer.clear()
+                    en_words_buffer.clear()
+                    print(i)
 
 
 def main():
