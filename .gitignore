@@ -1,3 +1,4 @@
 /python
 *.txt
 !sample.txt
+*.apkg

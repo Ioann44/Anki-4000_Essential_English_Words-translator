@@ -2,22 +2,12 @@ import re
 from typing import Dict, Tuple
 from googletrans import Translator
 
-first_re = re.compile(
-    r"(?P<beginning>^[^\t]+\t4000 EEW Extra\t4000 Essential English Words::[^\t]*\t[^\t]+\t[^\t]*\t)"
-    r"(?P<en_word>[^\t]+\t)[^\t]*"
-    r"(?P<ending>\t.*$)"
-)
-second_re = re.compile(
-    r"(?P<beginning>^[^\t]+\t4000 EEW\t4000 Essential English Words::[^\t]+\t)"
-    r"(?P<en_word>[^\t]+\t)[^\t]*"
-    r"(?P<ending>\t.*$)"
-)
+# No translations allowed before modifying
+general_re = re.compile(r"(?P<beginning>^.*\t)(?P<en_word>[^\t]+\t)(?P<ending>\t.+$)")
 
 
 def get_dct_and_enword(input_str) -> Tuple[Dict[str, str] | None, str]:
-    match = first_re.match(input_str)
-    if not match:
-        match = second_re.match(input_str)
+    match = general_re.match(input_str)
     if match:
         dct = match.groupdict()
         return dct, dct["en_word"]
@@ -71,6 +61,7 @@ def modify_file(in_fname, out_fname, buffer_len=100):
 
 def main():
     modify_file("input.txt", "output.txt")
+    print("Done")
 
 
 if __name__ == "__main__":

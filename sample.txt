@@ -4,7 +4,7 @@
 #notetype column:2
 #deck column:3
 #tags column:13
-xje~<2r0_>	4000 EEW Extra	4000 Essential English Words::Extra	2_1	"<img src=""backpack_1397924728921.jpg"">"	backpack	рюкзак	['bækpæk]	[sound:backpack.mp3]	[ˈbækpæk]	[ˈbækpæk]	[ˈbækpæk]	
-b0l;C^%^g:	4000 EEW	4000 Essential English Words::6.Book	thereby		"<img src=""13_3257.jpg"" />"	[sound:13_3257.mp3]	[sound:13_3257_meaning.mp3]	[sound:13_3257_example.mp3]	If we say that <i>thereby</i> something happens, we mean it is a result of something else.	He didn’t score a goal, <b>thereby</b> ending his chance at setting a record.	ˌðerˈbaɪ	
-q)PHE0%I:?	Cloze	4000 Essential English Words	1_1_79	"<img src=""beige_1397924728921.jpg"" />"
-H8b*]feu0?	Cloze	4000 Essential English Words	whereabouts		
+xje~<2r0_>	4000 EEW Extra++	4000 Essential English Words::Extra	2_1	"<img src=""backpack_1397924728921.jpg"" />"	backpack		['bækpæk]	[sound:backpack.mp3]	[ˈbækpæk]	[ˈbækpæk]	[ˈbækpæk]	
+wW`dXE?rX=	4000 EEW Extra++	4000 Essential English Words::Extra	2_2	"<img src=""bathrobe_1397924728921.jpg"" />"	bathrobe		['bɑːθrəub]	[sound:bathrobe.mp3]	[ˈbɑːθrəʊb]	[ˈbæθroʊb]	BrE [ˈbɑːθrəʊb] NAmE [ˈbæθroʊb]	
+kX6z!rB$Rc	4000 EEW++	4000 Essential English Words::1.Book	inform		"<img src=""21_0411.jpg"" />"	[sound:21_0411.mp3]	[sound:21_0411_meaning.mp3]	[sound:21_0411_example.mp3]	To <i>inform</i> someone is to tell them about something.	I called and <b>informed</b> her about my idea.	ɪnˈfɔːrm	
+QNk-*yqAAI	4000 EEW++	4000 Essential English Words::1.Book	later		"<img src=""21_0412.jpg"" />"	[sound:21_0412.mp3]	[sound:21_0412_meaning.mp3]	[sound:21_0412_example.mp3]	<i>Later</i> means after the present, expected, or usual time.	She missed the train, so she’ll arrive a little <b>later</b> than expected.	ˈleɪtər	
