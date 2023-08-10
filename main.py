@@ -56,12 +56,15 @@ def modify_file(in_fname, out_fname, buffer_len=100):
 
                     dct_buffer.clear()
                     en_words_buffer.clear()
-                    print(i)
+
+                    percent_complete = (i + 1) * 100 / lines_size
+                    print("\rProgress: [{:<50}] {:.2f}%".format("=" * int(percent_complete / 2), percent_complete), flush=True, end="")
+    print("\nDone!")
 
 
 def main():
-    modify_file("input.txt", "output.txt")
-    print("Done")
+    # modify_file("input.txt", "output.txt")
+    modify_file("sample.txt", "output.txt")
 
 
 if __name__ == "__main__":
